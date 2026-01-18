@@ -4,18 +4,18 @@
 # You can complete at most ONE transaction
 # One transaction with maximum profit = buy once + sell once 
 
+    
 class Solution:
     def maxProfit(self, prices: list[int]) -> int:
+        min_price = float('inf')
         max_profit = 0
-        l = 0
-        r = 1
 
-        while r < len(prices):
-            if prices[l] < prices[r]:
-                max_profit = max(max_profit, prices[r] - prices[l])
-            else:
-                l = r
-            r += 1
+        for price in prices:
+            # track lowest buy price
+            min_price = min(min_price, price)            
+            # compare with current sell
+            max_profit = max(max_profit, price - min_price)  
+
         return max_profit
 
 solution = Solution()
