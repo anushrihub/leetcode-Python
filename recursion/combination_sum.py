@@ -1,5 +1,5 @@
 # https://leetcode.com/problems/combination-sum/description/
-# Time Complexity- O(2 power n) Space Complexity- O(h)- stack space
+# Time Complexity- O(2 power n * k) Space Complexity- O(h)- stack space
 
 
 class Solution:
