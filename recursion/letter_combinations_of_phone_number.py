@@ -5,6 +5,7 @@ class Solution:
     def letterCombinations(self, digits: str) -> list[str]:
         result = []
         path = []
+        # create a dictionary
         char_map = {
                     "2" : "abc",
                     "3" : "def",
@@ -15,15 +16,21 @@ class Solution:
                     "8" : "tuv",
                     "9" : "wxyz"
                     }
-        
+        # helper function
         def helper(index,path):
+            # base case
             if index >= len(digits):
                 result.append("".join(path))
                 return
-            
+            # use for loop for iteration
+            # char_map[digits[0]] - 4
+            # for char in 4 - g, h, i
             for char in char_map[digits[index]]:
+                # append the char
                 path.append(char)
+                # call the helper function
                 helper(index + 1, path)
+                # backtrack
                 path.pop()
 
         helper(0, path)
